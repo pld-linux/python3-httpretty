@@ -15,7 +15,7 @@ Source0:	https://pypi.python.org/packages/source/h/httpretty/httpretty-%{version
 # Source0-md5:	753b82f3bf632fbfc595816a0f6691f0
 URL:		https://pypi.python.org/pypi/httpretty
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
 BuildRequires:	python-distribute
 BuildRequires:	python-sure
