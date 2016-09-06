@@ -26,11 +26,23 @@ BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
 BuildRequires:	python-distribute
 BuildRequires:	python-sure >= 1.2.24
+%if %{with tests}
+BuildRequires:	python-httplib2
+BuildRequires:	python-nose
+BuildRequires:	python-requests
+BuildRequires:	python-tornado
+%endif
 %endif
 %if %{with python3}
 BuildRequires:	python3-distribute
 BuildRequires:	python3-modules
 BuildRequires:	python3-sure >= 1.2.24
+%if %{with tests}
+BuildRequires:	python3-httplib2
+BuildRequires:	python3-nose
+BuildRequires:	python3-requests
+BuildRequires:	python3-tornado
+%endif
 %endif
 Requires:	python-modules
 BuildArch:	noarch
@@ -57,16 +69,13 @@ HTTP client mock for Python.
 %endif
 
 %if %{with python3}
-CFLAGS="%{rpmcppflags} %{rpmcflags}" \
 %py3_build %{?with_tests:test}
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %if %{with python2}
 %py_install
-
 %py_postclean
 %endif
 
@@ -83,9 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README*
 %dir %{py_sitescriptdir}/%{module}
 %{py_sitescriptdir}/%{module}/*.py[co]
-%if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{module}-%{version}-py*.egg-info
-%endif
 %endif
 
 %if %{with python3}
