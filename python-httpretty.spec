@@ -19,17 +19,18 @@ License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/h/httpretty/httpretty-%{version}.tar.gz
 # Source0-md5:	2a6bbf270fafc77647b0479d95d0544c
+Patch0:		test-deps.patch
 URL:		http://httpretty.readthedocs.io/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
 BuildRequires:	python-distribute
-BuildRequires:	python-sure
+BuildRequires:	python-sure >= 1.2.24
 %endif
 %if %{with python3}
 BuildRequires:	python3-distribute
 BuildRequires:	python3-modules
-BuildRequires:	python3-sure
+BuildRequires:	python3-sure >= 1.2.24
 %endif
 Requires:	python-modules
 BuildArch:	noarch
@@ -48,6 +49,7 @@ HTTP client mock for Python.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p1
 
 %build
 %if %{with python2}
