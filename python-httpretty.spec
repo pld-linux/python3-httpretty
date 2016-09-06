@@ -8,7 +8,7 @@
 # will notice that the travis build for python 3 might be broken, and
 # while pull requests fixing py3 support are most welcome, it is still
 # not official at least *for now*.
-%bcond_with	python3 # CPython 3.x module
+%bcond_without	python3 # CPython 3.x module
 
 %define 	module	httpretty
 Summary:	HTTP client mock for Python
@@ -42,6 +42,8 @@ BuildRequires:	python3-httplib2
 BuildRequires:	python3-nose
 BuildRequires:	python3-requests
 BuildRequires:	python3-tornado
+# AUTO: -- ImportError: No module named 'urllib3'
+BuildRequires:	python3-urllib3
 %endif
 %endif
 Requires:	python-modules
