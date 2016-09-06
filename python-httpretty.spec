@@ -2,18 +2,24 @@
 # Conditional build:
 %bcond_with	tests	# do not perform "make test"
 %bcond_without	python2 # CPython 2.x module
+# Python3 note:
+# Due to big API incompatibility between python 3.3, 3.4 and 3.5, the
+# author of HTTPretty is **not** supporting python3 officially.  You
+# will notice that the travis build for python 3 might be broken, and
+# while pull requests fixing py3 support are most welcome, it is still
+# not official at least *for now*.
 %bcond_with	python3 # CPython 3.x module
 
 %define 	module	httpretty
 Summary:	HTTP client mock for Python
 Name:		python-%{module}
-Version:	0.8.7
-Release:	2
+Version:	0.8.14
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/h/httpretty/httpretty-%{version}.tar.gz
-# Source0-md5:	753b82f3bf632fbfc595816a0f6691f0
-URL:		https://pypi.python.org/pypi/httpretty
+# Source0-md5:	2a6bbf270fafc77647b0479d95d0544c
+URL:		http://httpretty.readthedocs.io/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
