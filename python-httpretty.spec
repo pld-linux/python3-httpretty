@@ -14,7 +14,7 @@
 Summary:	HTTP client mock for Python
 Name:		python-%{module}
 Version:	0.8.14
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/h/httpretty/httpretty-%{version}.tar.gz
