@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	tests	# unit/functional tests
+%bcond_without	tests	# unit/functional tests
 %bcond_with	doc	# build Sphinx documentation (already built docs included in dist as of 0.9.7)
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
@@ -17,6 +17,7 @@ Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/httpretty/
 Source0:	https://files.pythonhosted.org/packages/source/h/httpretty/httpretty-%{version}.tar.gz
 # Source0-md5:	2fc3d0dc986200be95ce8ad3ef56bc04
+Patch0:		%{name}-mock.patch
 URL:		https://httpretty.readthedocs.io/
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
@@ -92,6 +93,7 @@ Dokumentacja API modułu Pythona httpretty.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p1
 
 %build
 %if %{with python2}
