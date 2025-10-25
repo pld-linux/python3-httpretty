@@ -36,7 +36,7 @@ BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	python3-sphinx_rtd_theme
 BuildRequires:	sphinx-pdg-3
 %endif
-Requires:	python-modules >= 1:2.7
+Requires:	python3-modules >= 1:3.6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
