@@ -8,7 +8,7 @@ Summary:	HTTP client mock for Python
 Summary(pl.UTF-8):	Atrapa klienta HTTP dla Pythona
 Name:		python3-%{module}
 Version:	1.1.4
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/httpretty/
